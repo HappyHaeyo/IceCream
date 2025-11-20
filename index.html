@@ -1,282 +1,293 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friends' Favorite Ice Cream</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 2rem;
-            color: #333;
-        }
+body {
+font-family: 'Outfit', sans-serif;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+min-height: 100vh;
+padding: 2rem;
+color: #333;
+}
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+.container {
+max-width: 800px;
+margin: 0 auto;
+}
 
-        h1 {
-            text-align: center;
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            animation: fadeInDown 0.6s ease-out;
-        }
+h1 {
+text-align: center;
+color: white;
+font-size: 2.5rem;
+margin-bottom: 1rem;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+animation: fadeInDown 0.6s ease-out;
+}
 
-        .subtitle {
-            text-align: center;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            animation: fadeInDown 0.8s ease-out;
-        }
+.subtitle {
+text-align: center;
+color: rgba(255, 255, 255, 0.9);
+font-size: 1.1rem;
+margin-bottom: 2rem;
+animation: fadeInDown 0.8s ease-out;
+}
 
-        .form-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.6s ease-out;
-        }
+.form-card {
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(10px);
+border-radius: 20px;
+padding: 2rem;
+box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+margin-bottom: 2rem;
+animation: fadeInUp 0.6s ease-out;
+}
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
+.form-group {
+margin-bottom: 1.5rem;
+}
 
-        label {
-            display: block;
-            font-weight: 600;
-            color: #667eea;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+label {
+display: block;
+font-weight: 600;
+color: #667eea;
+margin-bottom: 0.5rem;
+font-size: 0.95rem;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
 
-        input {
-            width: 100%;
-            padding: 0.9rem 1.2rem;
-            border: 2px solid #e0e7ff;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-family: 'Outfit', sans-serif;
-            transition: all 0.3s ease;
-            background: white;
-        }
+input {
+width: 100%;
+padding: 0.9rem 1.2rem;
+border: 2px solid #e0e7ff;
+border-radius: 12px;
+font-size: 1rem;
+font-family: 'Outfit', sans-serif;
+transition: all 0.3s ease;
+background: white;
+}
 
-        input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
-            transform: translateY(-2px);
-        }
+input:focus {
+outline: none;
+border-color: #667eea;
+box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+transform: translateY(-2px);
+}
 
-        button {
-            width: 100%;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        }
+button {
+width: 100%;
+padding: 1rem 2rem;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+border: none;
+border-radius: 12px;
+font-size: 1.1rem;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.3s ease;
+text-transform: uppercase;
+letter-spacing: 1px;
+box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
 
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-        }
+button:hover {
+transform: translateY(-2px);
+box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
 
-        button:active {
-            transform: translateY(0);
-        }
+button:active {
+transform: translateY(0);
+}
 
-        button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
+button:disabled {
+opacity: 0.6;
+cursor: not-allowed;
+transform: none;
+}
 
-        .data-section {
-            animation: fadeInUp 0.8s ease-out;
-        }
+.data-section {
+animation: fadeInUp 0.8s ease-out;
+}
 
-        .section-title {
-            color: white;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            text-align: center;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
+.section-title {
+color: white;
+font-size: 1.8rem;
+margin-bottom: 1rem;
+text-align: center;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-        .data-grid {
-            display: grid;
-            gap: 1rem;
-        }
+.data-grid {
+display: grid;
+gap: 1rem;
+}
 
-        .data-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 1.5rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            transition: all 0.3s ease;
-            animation: slideIn 0.4s ease-out;
-        }
+.data-card {
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(10px);
+border-radius: 15px;
+padding: 1.5rem;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+display: flex;
+align-items: center;
+gap: 1.5rem;
+transition: all 0.3s ease;
+animation: slideIn 0.4s ease-out;
+}
 
-        .data-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
+.data-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
 
-        .ice-cream-icon {
-            font-size: 3rem;
-            min-width: 60px;
-            text-align: center;
-        }
+.ice-cream-icon {
+font-size: 3rem;
+min-width: 60px;
+text-align: center;
+}
 
-        .data-content {
-            flex: 1;
-        }
+.data-content {
+flex: 1;
+}
 
-        .data-name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #667eea;
-            margin-bottom: 0.3rem;
-        }
+.data-name {
+font-size: 1.3rem;
+font-weight: 700;
+color: #667eea;
+margin-bottom: 0.3rem;
+}
 
-        .data-flavor {
-            font-size: 1rem;
-            color: #666;
-        }
+.data-flavor {
+font-size: 1rem;
+color: #666;
+}
 
-        .loading {
-            text-align: center;
-            color: white;
-            font-size: 1.2rem;
-            padding: 2rem;
-            animation: pulse 1.5s ease-in-out infinite;
-        }
+.loading {
+text-align: center;
+color: white;
+font-size: 1.2rem;
+padding: 2rem;
+animation: pulse 1.5s ease-in-out infinite;
+}
 
-        .error {
-            background: #ff6b6b;
-            color: white;
-            padding: 1rem;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            text-align: center;
-            animation: shake 0.5s ease;
-        }
+.error {
+background: #ff6b6b;
+color: white;
+padding: 1rem;
+border-radius: 12px;
+margin-bottom: 1rem;
+text-align: center;
+animation: shake 0.5s ease;
+}
 
-        .success {
-            background: #51cf66;
-            color: white;
-            padding: 1rem;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            text-align: center;
-            animation: fadeIn 0.5s ease;
-        }
+.success {
+background: #51cf66;
+color: white;
+padding: 1rem;
+border-radius: 12px;
+margin-bottom: 1rem;
+text-align: center;
+animation: fadeIn 0.5s ease;
+}
 
-        .empty-state {
-            text-align: center;
-            color: white;
-            padding: 3rem;
-            font-size: 1.2rem;
-            opacity: 0.8;
-        }
+.empty-state {
+text-align: center;
+color: white;
+padding: 3rem;
+font-size: 1.2rem;
+opacity: 0.8;
+}
 
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+@keyframes fadeInDown {
+from {
+opacity: 0;
+transform: translateY(-20px);
+}
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
 
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
 
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
-        }
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
 
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-10px); }
-            75% { transform: translateX(10px); }
-        }
+@keyframes slideIn {
+from {
+opacity: 0;
+transform: translateX(-20px);
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+to {
+opacity: 1;
+transform: translateX(0);
+}
+}
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
-            }
+@keyframes pulse {
 
-            .form-card {
-                padding: 1.5rem;
-            }
+0%,
+100% {
+opacity: 1;
+}
 
-            .data-card {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
+50% {
+opacity: 0.5;
+}
+}
+
+@keyframes shake {
+
+0%,
+100% {
+transform: translateX(0);
+}
+
+25% {
+transform: translateX(-10px);
+}
+
+75% {
+transform: translateX(10px);
+}
+}
+
+@keyframes fadeIn {
+from {
+opacity: 0;
+}
+
+to {
+opacity: 1;
+}
+}
+
+@media (max-width: 600px) {
+h1 {
+font-size: 2rem;
+}
+
+.form-card {
+padding: 1.5rem;
+}
+
+.data-card {
+flex-direction: column;
+text-align: center;
+}
+}
+</style>
 </head>
+
 <body>
     <div class="container">
         <h1>🍦 Ice Cream Friends 🍦</h1>
@@ -315,7 +326,7 @@
 
         // 아이스크림 이모지 랜덤 선택
         const iceCreamEmojis = ['🍦', '🍨', '🍧', '🧁', '🍰', '🎂', '🍮'];
-        
+
         function getRandomIceCreamEmoji() {
             return iceCreamEmojis[Math.floor(Math.random() * iceCreamEmojis.length)];
         }
@@ -333,7 +344,7 @@
             try {
                 const response = await fetch(API_URL);
                 const data = await response.json();
-                
+
                 if (data.status === 'success' && data.data && data.data.length > 0) {
                     displayData(data.data);
                 } else {
@@ -349,7 +360,7 @@
         function displayData(data) {
             // 최신 데이터가 위로 오도록 역순 정렬
             const reversedData = [...data].reverse();
-            
+
             dataContainer.innerHTML = reversedData.map(item => `
                 <div class="data-card">
                     <div class="ice-cream-icon">${getRandomIceCreamEmoji()}</div>
@@ -371,10 +382,10 @@
         // 폼 제출
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             const name = document.getElementById('name').value.trim();
             const flavor = document.getElementById('flavor').value.trim();
-            
+
             if (!name || !flavor) {
                 showMessage('모든 필드를 입력해주세요!', 'error');
                 return;
@@ -384,29 +395,31 @@
             submitBtn.textContent = '추가 중...';
 
             try {
-                const response = await fetch(API_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: new URLSearchParams({
-                        name: name,
-                        flavor: flavor
-                    })
+                // 방법 1: URL 파라미터로 GET 요청 (Google Apps Script에서 흔히 사용)
+                const urlWithParams = `${API_URL}?action=add&name=${encodeURIComponent(name)}&flavor=${encodeURIComponent(flavor)}`;
+
+                console.log('Sending request to:', urlWithParams);
+
+                const response = await fetch(urlWithParams, {
+                    method: 'GET',
+                    redirect: 'follow'
                 });
 
+                console.log('Response status:', response.status);
                 const result = await response.json();
-                
-                if (result.status === 'success') {
+                console.log('Response data:', result);
+
+                if (result.status === 'success' || result.result === 'success') {
                     showMessage('✨ 성공적으로 추가되었습니다!', 'success');
                     form.reset();
-                    fetchData(); // 데이터 새로고침
+                    setTimeout(() => fetchData(), 500); // 데이터 새로고침
                 } else {
-                    showMessage('추가 중 오류가 발생했습니다.', 'error');
+                    console.error('Server returned error:', result);
+                    showMessage(`오류: ${result.message || '추가 중 오류가 발생했습니다.'}`, 'error');
                 }
             } catch (error) {
                 console.error('Error submitting data:', error);
-                showMessage('서버 연결 중 오류가 발생했습니다.', 'error');
+                showMessage(`서버 연결 중 오류가 발생했습니다: ${error.message}`, 'error');
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = '추가하기';
@@ -420,4 +433,5 @@
         setInterval(fetchData, 30000);
     </script>
 </body>
+
 </html>
