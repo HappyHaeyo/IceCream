@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends' Favorite Ice Cream</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 0.6s ease-out;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .form-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid #e0e7ff;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Outfit', sans-serif;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .data-section {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-title {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .data-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .data-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+            animation: slideIn 0.4s ease-out;
+        }
+
+        .data-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .ice-cream-icon {
+            font-size: 3rem;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .data-content {
+            flex: 1;
+        }
+
+        .data-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 0.3rem;
+        }
+
+        .data-flavor {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .loading {
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            padding: 2rem;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .error {
+            background: #ff6b6b;
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            text-align: center;
+            animation: shake 0.5s ease;
+        }
+
+        .success {
+            background: #51cf66;
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: white;
+            padding: 3rem;
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .form-card {
+                padding: 1.5rem;
+            }
+
+            .data-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍦 Ice Cream Friends 🍦</h1>
+        <p class="subtitle">친구들이 좋아하는 아이스크림을 공유해보세요!</p>
+
+        <div class="form-card">
+            <div id="message"></div>
+            <form id="icecreamForm">
+                <div class="form-group">
+                    <label for="name">이름 (Name)</label>
+                    <input type="text" id="name" name="name" placeholder="친구 이름을 입력하세요" required>
+                </div>
+                <div class="form-group">
+                    <label for="flavor">좋아하는 아이스크림 (Favorite Ice Cream Flavor)</label>
+                    <input type="text" id="flavor" name="flavor" placeholder="예: 민트초코, 바닐라, 딸기 등" required>
+                </div>
+                <button type="submit" id="submitBtn">추가하기</button>
+            </form>
+        </div>
+
+        <div class="data-section">
+            <h2 class="section-title">친구들의 아이스크림 취향</h2>
+            <div id="dataContainer">
+                <div class="loading">데이터를 불러오는 중...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'https://script.google.com/macros/s/AKfycbwb7jzwdSFXCfd6HDgyQeXdoocxKi4R2y9YOxJxxghs976Obqa52LeS9CtK0b5APn_R-Q/exec';
+
+        const form = document.getElementById('icecreamForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const dataContainer = document.getElementById('dataContainer');
+        const messageDiv = document.getElementById('message');
+
+        // 아이스크림 이모지 랜덤 선택
+        const iceCreamEmojis = ['🍦', '🍨', '🍧', '🧁', '🍰', '🎂', '🍮'];
+        
+        function getRandomIceCreamEmoji() {
+            return iceCreamEmojis[Math.floor(Math.random() * iceCreamEmojis.length)];
+        }
+
+        // 메시지 표시
+        function showMessage(text, type) {
+            messageDiv.innerHTML = `<div class="${type}">${text}</div>`;
+            setTimeout(() => {
+                messageDiv.innerHTML = '';
+            }, 3000);
+        }
+
+        // 데이터 가져오기
+        async function fetchData() {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+                
+                if (data.status === 'success' && data.data && data.data.length > 0) {
+                    displayData(data.data);
+                } else {
+                    dataContainer.innerHTML = '<div class="empty-state">아직 등록된 친구가 없습니다.<br>첫 번째로 추가해보세요! 🎉</div>';
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                dataContainer.innerHTML = '<div class="empty-state">데이터를 불러오는 중 오류가 발생했습니다.</div>';
+            }
+        }
+
+        // 데이터 표시
+        function displayData(data) {
+            // 최신 데이터가 위로 오도록 역순 정렬
+            const reversedData = [...data].reverse();
+            
+            dataContainer.innerHTML = reversedData.map(item => `
+                <div class="data-card">
+                    <div class="ice-cream-icon">${getRandomIceCreamEmoji()}</div>
+                    <div class="data-content">
+                        <div class="data-name">${escapeHtml(item.name)}</div>
+                        <div class="data-flavor">${escapeHtml(item.flavor)}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // HTML 이스케이프 (XSS 방지)
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // 폼 제출
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const flavor = document.getElementById('flavor').value.trim();
+            
+            if (!name || !flavor) {
+                showMessage('모든 필드를 입력해주세요!', 'error');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = '추가 중...';
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        name: name,
+                        flavor: flavor
+                    })
+                });
+
+                const result = await response.json();
+                
+                if (result.status === 'success') {
+                    showMessage('✨ 성공적으로 추가되었습니다!', 'success');
+                    form.reset();
+                    fetchData(); // 데이터 새로고침
+                } else {
+                    showMessage('추가 중 오류가 발생했습니다.', 'error');
+                }
+            } catch (error) {
+                console.error('Error submitting data:', error);
+                showMessage('서버 연결 중 오류가 발생했습니다.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '추가하기';
+            }
+        });
+
+        // 페이지 로드 시 데이터 가져오기
+        fetchData();
+
+        // 30초마다 자동 새로고침
+        setInterval(fetchData, 30000);
+    </script>
+</body>
+</html>
