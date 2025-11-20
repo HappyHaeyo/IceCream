@@ -1,291 +1,319 @@
-box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="ko">
 
-body {
-font-family: 'Outfit', sans-serif;
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-min-height: 100vh;
-padding: 2rem;
-color: #333;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends' Favorite Ice Cream</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍦</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.container {
-max-width: 800px;
-margin: 0 auto;
-}
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: #333;
+        }
 
-h1 {
-text-align: center;
-color: white;
-font-size: 2.5rem;
-margin-bottom: 1rem;
-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-animation: fadeInDown 0.6s ease-out;
-}
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-.subtitle {
-text-align: center;
-color: rgba(255, 255, 255, 0.9);
-font-size: 1.1rem;
-margin-bottom: 2rem;
-animation: fadeInDown 0.8s ease-out;
-}
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 0.6s ease-out;
+        }
 
-.form-card {
-background: rgba(255, 255, 255, 0.95);
-backdrop-filter: blur(10px);
-border-radius: 20px;
-padding: 2rem;
-box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-margin-bottom: 2rem;
-animation: fadeInUp 0.6s ease-out;
-}
+        .subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
 
-.form-group {
-margin-bottom: 1.5rem;
-}
+        .form-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
 
-label {
-display: block;
-font-weight: 600;
-color: #667eea;
-margin-bottom: 0.5rem;
-font-size: 0.95rem;
-text-transform: uppercase;
-letter-spacing: 0.5px;
-}
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
 
-input {
-width: 100%;
-padding: 0.9rem 1.2rem;
-border: 2px solid #e0e7ff;
-border-radius: 12px;
-font-size: 1rem;
-font-family: 'Outfit', sans-serif;
-transition: all 0.3s ease;
-background: white;
-}
+        label {
+            display: block;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
-input:focus {
-outline: none;
-border-color: #667eea;
-box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
-transform: translateY(-2px);
-}
+        input {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid #e0e7ff;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Outfit', sans-serif;
+            transition: all 0.3s ease;
+            background: white;
+        }
 
-button {
-width: 100%;
-padding: 1rem 2rem;
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-color: white;
-border: none;
-border-radius: 12px;
-font-size: 1.1rem;
-font-weight: 600;
-cursor: pointer;
-transition: all 0.3s ease;
-text-transform: uppercase;
-letter-spacing: 1px;
-box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-}
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
 
-button:hover {
-transform: translateY(-2px);
-box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-}
+        button {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
 
-button:active {
-transform: translateY(0);
-}
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
 
-button:disabled {
-opacity: 0.6;
-cursor: not-allowed;
-transform: none;
-}
+        button:active {
+            transform: translateY(0);
+        }
 
-.data-section {
-animation: fadeInUp 0.8s ease-out;
-}
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
 
-.section-title {
-color: white;
-font-size: 1.8rem;
-margin-bottom: 1rem;
-text-align: center;
-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
+        .data-section {
+            animation: fadeInUp 0.8s ease-out;
+        }
 
-.data-grid {
-display: grid;
-gap: 1rem;
-}
+        .section-title {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
 
-.data-card {
-background: rgba(255, 255, 255, 0.95);
-backdrop-filter: blur(10px);
-border-radius: 15px;
-padding: 1.5rem;
-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-display: flex;
-align-items: center;
-gap: 1.5rem;
-transition: all 0.3s ease;
-animation: slideIn 0.4s ease-out;
-}
+        .data-grid {
+            display: grid;
+            gap: 1rem;
+        }
 
-.data-card:hover {
-transform: translateY(-5px);
-box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-}
+        .data-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+            animation: slideIn 0.4s ease-out;
+        }
 
-.ice-cream-icon {
-font-size: 3rem;
-min-width: 60px;
-text-align: center;
-}
+        .data-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
 
-.data-content {
-flex: 1;
-}
+        .ice-cream-icon {
+            font-size: 3rem;
+            min-width: 60px;
+            text-align: center;
+        }
 
-.data-name {
-font-size: 1.3rem;
-font-weight: 700;
-color: #667eea;
-margin-bottom: 0.3rem;
-}
+        .data-content {
+            flex: 1;
+        }
 
-.data-flavor {
-font-size: 1rem;
-color: #666;
-}
+        .data-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 0.3rem;
+        }
 
-.loading {
-text-align: center;
-color: white;
-font-size: 1.2rem;
-padding: 2rem;
-animation: pulse 1.5s ease-in-out infinite;
-}
+        .data-flavor {
+            font-size: 1rem;
+            color: #666;
+        }
 
-.error {
-background: #ff6b6b;
-color: white;
-padding: 1rem;
-border-radius: 12px;
-margin-bottom: 1rem;
-text-align: center;
-animation: shake 0.5s ease;
-}
+        .loading {
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            padding: 2rem;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
 
-.success {
-background: #51cf66;
-color: white;
-padding: 1rem;
-border-radius: 12px;
-margin-bottom: 1rem;
-text-align: center;
-animation: fadeIn 0.5s ease;
-}
+        .error {
+            background: #ff6b6b;
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            text-align: center;
+            animation: shake 0.5s ease;
+        }
 
-.empty-state {
-text-align: center;
-color: white;
-padding: 3rem;
-font-size: 1.2rem;
-opacity: 0.8;
-}
+        .success {
+            background: #51cf66;
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
 
-@keyframes fadeInDown {
-from {
-opacity: 0;
-transform: translateY(-20px);
-}
+        .empty-state {
+            text-align: center;
+            color: white;
+            padding: 3rem;
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
 
-to {
-opacity: 1;
-transform: translateY(0);
-}
-}
+        .log-entry {
+            margin-bottom: 5px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 2px;
+        }
 
-@keyframes fadeInUp {
-from {
-opacity: 0;
-transform: translateY(20px);
-}
+        .log-entry.error {
+            color: #ff6b6b;
+        }
 
-to {
-opacity: 1;
-transform: translateY(0);
-}
-}
+        .log-entry.success {
+            color: #51cf66;
+        }
 
-@keyframes slideIn {
-from {
-opacity: 0;
-transform: translateX(-20px);
-}
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
 
-to {
-opacity: 1;
-transform: translateX(0);
-}
-}
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-@keyframes pulse {
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
 
-0%,
-100% {
-opacity: 1;
-}
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-50% {
-opacity: 0.5;
-}
-}
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
 
-@keyframes shake {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
 
-0%,
-100% {
-transform: translateX(0);
-}
+        @keyframes pulse {
 
-25% {
-transform: translateX(-10px);
-}
+            0%,
+            100% {
+                opacity: 1;
+            }
 
-75% {
-transform: translateX(10px);
-}
-}
+            50% {
+                opacity: 0.5;
+            }
+        }
 
-@keyframes fadeIn {
-from {
-opacity: 0;
-}
+        @keyframes shake {
 
-to {
-opacity: 1;
-}
-}
+            0%,
+            100% {
+                transform: translateX(0);
+            }
 
-@media (max-width: 600px) {
-h1 {
-font-size: 2rem;
-}
+            25% {
+                transform: translateX(-10px);
+            }
 
-.form-card {
-padding: 1.5rem;
-}
+            75% {
+                transform: translateX(10px);
+            }
+        }
 
-.data-card {
-flex-direction: column;
-text-align: center;
-}
-}
-</style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .form-card {
+                padding: 1.5rem;
+            }
+
+            .data-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -314,6 +342,17 @@ text-align: center;
                 <div class="loading">데이터를 불러오는 중...</div>
             </div>
         </div>
+
+        <!-- Debug Section -->
+        <div style="margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 1rem;">
+            <h3 style="color: white; margin-bottom: 1rem;">🔧 Debug Log</h3>
+            <button onclick="testConnection()"
+                style="width: auto; padding: 0.5rem 1rem; font-size: 0.9rem; margin-bottom: 1rem; background: #4a5568; color: white; border: none; border-radius: 5px; cursor: pointer;">Test
+                Connection</button>
+            <div id="debugLog"
+                style="background: rgba(0,0,0,0.8); color: #00ff00; padding: 1rem; border-radius: 10px; height: 200px; overflow-y: auto; font-family: monospace; font-size: 0.9rem;">
+            </div>
+        </div>
     </div>
 
     <script>
@@ -339,20 +378,61 @@ text-align: center;
             }, 3000);
         }
 
-        // 데이터 가져오기
-        async function fetchData() {
+        // Debug logging function
+        function log(message, type = 'info') {
+            const debugLog = document.getElementById('debugLog');
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            const time = new Date().toLocaleTimeString();
+            entry.textContent = `[${time}] ${message}`;
+            debugLog.insertBefore(entry, debugLog.firstChild);
+            console.log(`[${type}] ${message}`);
+        }
+
+        // Test Connection function
+        window.testConnection = async function () {
+            log('Testing connection to API...');
             try {
                 const response = await fetch(API_URL);
-                const data = await response.json();
+                log(`Connection test status: ${response.status}`);
+                const text = await response.text();
+                log(`Connection test response: ${text.substring(0, 100)}...`);
+                alert('연결 성공! 로그를 확인하세요.');
+            } catch (error) {
+                log(`Connection test failed: ${error.message}`, 'error');
+                alert('연결 실패. 로그를 확인하세요.');
+            }
+        };
 
-                if (data.status === 'success' && data.data && data.data.length > 0) {
-                    displayData(data.data);
+        // 데이터 가져오기
+        async function fetchData() {
+            log('Fetching data...');
+            try {
+                const response = await fetch(`${API_URL}?action=read`);
+                log(`Fetch status: ${response.status}`);
+                const data = await response.json();
+                log(`Fetch data received: ${JSON.stringify(data)}`);
+
+                // Apps Script returns {status: "success", data: {headers: [...], rows: [...]}}
+                if (data.status === 'success' && data.data && data.data.rows) {
+                    const rows = data.data.rows;
+                    if (rows.length > 0) {
+                        // Convert rows array to objects with name and flavor properties
+                        const items = rows.map(row => ({
+                            name: row[0],
+                            flavor: row[1]
+                        }));
+                        displayData(items);
+                    } else {
+                        dataContainer.innerHTML = '<div class="empty-state">아직 등록된 친구가 없습니다.<br>첫 번째로 추가해보세요! 🎉</div>';
+                    }
                 } else {
                     dataContainer.innerHTML = '<div class="empty-state">아직 등록된 친구가 없습니다.<br>첫 번째로 추가해보세요! 🎉</div>';
                 }
             } catch (error) {
+                log(`Error fetching data: ${error.message}`, 'error');
                 console.error('Error fetching data:', error);
-                dataContainer.innerHTML = '<div class="empty-state">데이터를 불러오는 중 오류가 발생했습니다.</div>';
+                dataContainer.innerHTML = '<div class="empty-state">데이터를 불러오는 중 오류가 발생했습니다.<br>아래 디버그 로그를 확인해주세요.</div>';
             }
         }
 
@@ -393,31 +473,39 @@ text-align: center;
 
             submitBtn.disabled = true;
             submitBtn.textContent = '추가 중...';
+            log(`Submitting data: Name=${name}, Flavor=${flavor}`);
 
             try {
-                // 방법 1: URL 파라미터로 GET 요청 (Google Apps Script에서 흔히 사용)
-                const urlWithParams = `${API_URL}?action=add&name=${encodeURIComponent(name)}&flavor=${encodeURIComponent(flavor)}`;
+                // POST 요청 - action=create 사용 (Apps Script 요구사항)
+                const url = `${API_URL}?action=create`;
 
-                console.log('Sending request to:', urlWithParams);
+                log(`Sending POST request to: ${url}`);
 
-                const response = await fetch(urlWithParams, {
-                    method: 'GET',
-                    redirect: 'follow'
+                // URLSearchParams를 사용하여 application/x-www-form-urlencoded 형식으로 전송
+                // 필드 이름은 Google Sheets 헤더와 정확히 일치해야 합니다
+                const formData = new URLSearchParams();
+                formData.append('Name', name);  // 헤더: "Name"
+                formData.append('Favorite Icecream Flavor', flavor);  // 헤더: "Favorite Icecream Flavor"
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    body: formData
                 });
 
-                console.log('Response status:', response.status);
+                log(`Response status: ${response.status}`);
                 const result = await response.json();
-                console.log('Response data:', result);
+                log(`Response data: ${JSON.stringify(result)}`);
 
                 if (result.status === 'success' || result.result === 'success') {
                     showMessage('✨ 성공적으로 추가되었습니다!', 'success');
                     form.reset();
                     setTimeout(() => fetchData(), 500); // 데이터 새로고침
                 } else {
-                    console.error('Server returned error:', result);
+                    log(`Server returned error: ${JSON.stringify(result)}`, 'error');
                     showMessage(`오류: ${result.message || '추가 중 오류가 발생했습니다.'}`, 'error');
                 }
             } catch (error) {
+                log(`Error submitting data: ${error.message}`, 'error');
                 console.error('Error submitting data:', error);
                 showMessage(`서버 연결 중 오류가 발생했습니다: ${error.message}`, 'error');
             } finally {
